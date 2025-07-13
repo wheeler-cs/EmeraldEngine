@@ -2020,7 +2020,13 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
         statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_SLP_BATTLER0, battler));
         statusPalId = PAL_STATUS_SLP;
     }
-    else if (status & STATUS1_PSN_ANY)
+    // TODO: Make a custom TXC badge
+    else if (status & STATUS1_TOXIC_POISON)
+    {
+        statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_PSN_BATTLER0, battler));
+        statusPalId = PAL_STATUS_BRN;
+    }
+    else if (status & STATUS1_POISON)
     {
         statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_PSN_BATTLER0, battler));
         statusPalId = PAL_STATUS_PSN;
