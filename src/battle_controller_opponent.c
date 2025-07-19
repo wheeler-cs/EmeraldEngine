@@ -239,9 +239,6 @@ static void Intro_WaitForShinyAnimAndHealthbox(void)
         twoMons = TRUE;
     }
 
-    gBattleControllerOpponentHealthboxData = &gBattleSpritesDataPtr->healthBoxesData[gActiveBattler];
-    gBattleControllerOpponentFlankHealthboxData = &gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(gActiveBattler)];
-
     if (healthboxAnimDone)
     {
         if (twoMons == TRUE)
