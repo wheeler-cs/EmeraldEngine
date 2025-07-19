@@ -11,10 +11,13 @@ RUN apt install build-essential binutils-arm-none-eabi git libpng-dev pkgconf vi
 # Add new user
 RUN useradd -ms /bin/bash emdev
 
-# Copy SSH
+# Setup SSH for GitHub
 RUN mkdir .ssh
 COPY .ssh/* .ssh/
-RUN chown -R emdev:emdev .ssh/* 
+RUN chown -R emdev:emdev .ssh/*
+RUN chmod 700 .ssh
+RUN chmod 600 .ssh/github
+RUN chmod 755 .ssh/config
 
 # Initialize user
 USER emdev
