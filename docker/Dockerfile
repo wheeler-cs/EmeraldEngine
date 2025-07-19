@@ -10,18 +10,15 @@ RUN apt install build-essential binutils-arm-none-eabi git libpng-dev pkgconf vi
 
 # Add new user
 RUN useradd -ms /bin/bash emdev
+WORKDIR "/home/emdev"
 
 # Setup SSH for GitHub
 RUN mkdir .ssh
 COPY .ssh/* .ssh/
-RUN chown -R emdev:emdev .ssh/*
-RUN chmod 700 .ssh
-RUN chmod 600 .ssh/github
-RUN chmod 755 .ssh/config
+RUN chmod 700 .ssh && chmod 600 .ssh/github && chmod 755 .ssh/config && chown -R emdev:emdev .ssh
 
-# Initialize user
+# Switch context to user
 USER emdev
-WORKDIR "/home/emdev"
 
 # Build tools for project
 RUN git clone https://github.com/wheeler-cs/EmeraldEngine
