@@ -1219,15 +1219,25 @@ static void HallOfFame_PrintPlayerInfo(u8 unused1, u8 unused2)
     AddTextPrinterParameterized3(1, FONT_NORMAL, width, 0x11, sPlayerInfoTextColors, TEXT_SKIP_DRAW, text);
 
     AddTextPrinterParameterized3(1, FONT_NORMAL, 0, 0x21, sPlayerInfoTextColors, TEXT_SKIP_DRAW, gText_Time);
-    text[0] = (gSaveBlock2Ptr->playTimeHours / 100) + CHAR_0;
-    text[1] = (gSaveBlock2Ptr->playTimeHours % 100) / 10 + CHAR_0;
-    text[2] = (gSaveBlock2Ptr->playTimeHours % 10) + CHAR_0;
-
-    if (text[0] == CHAR_0)
+    // Calculate hours
+    text[0] = (gSaveBlock2Ptr->playTimeHours / 1000) + CHAR_0;
+    text[1] = (gSaveBlock2Ptr->playTimeHours % 1000) / 100 + CHAR_0;
+    text[2] = (gSaveBlock2Ptr->playTimeHours % 100) / 10 + CHAR_0;
+    text[3] = (gSaveBlock2Ptr->playTimeHours % 10) + CHAR_0;
+    // Convert leading 0s to spaces
+    if(text[0] == CHAR_0)
+    {
         text[0] = CHAR_SPACE;
-    if (text[0] == CHAR_SPACE && text[1] == CHAR_0)
-        text[8] = CHAR_SPACE;
-
+        if(text[1] == CHAR_0)
+        {
+            text[1] = CHAR_SPACE;
+            if(text[2] == CHAR_0)
+            {
+                text[2] = CHAR_SPACE;
+            }
+        }
+    }
+    // Minutes
     text[3] = CHAR_COLON;
     text[4] = (gSaveBlock2Ptr->playTimeMinutes % 100) / 10 + CHAR_0;
     text[5] = (gSaveBlock2Ptr->playTimeMinutes % 10) + CHAR_0;

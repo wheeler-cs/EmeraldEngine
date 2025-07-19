@@ -66,6 +66,8 @@
 #include "constants/metatile_labels.h"
 #include "palette.h"
 
+#include "play_time.h"
+
 #define TAG_ITEM_ICON 5500
 
 #define GFXTAG_MULTICHOICE_SCROLL_ARROWS 2000
@@ -4131,7 +4133,7 @@ u16 GetNumFansOfPlayerInTrainerFanClub(void)
 void TryLoseFansFromPlayTime(void)
 {
     u8 i = 0;
-    if (gSaveBlock2Ptr->playTimeHours < 999)
+    if (gSaveBlock2Ptr->playTimeHours < MAX_PLAY_TIME_HOURS)
     {
         while (TRUE)
         {

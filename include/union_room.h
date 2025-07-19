@@ -112,7 +112,6 @@ struct WirelessLink_URoom
     u8 state;
     u8 stateAfterPrint;
     u8 textState;
-    u8 filler[4];
     u8 topListMenuWindowId;
     u8 topListMenuId;
     u8 tradeBoardMainWindowId;

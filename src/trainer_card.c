@@ -33,6 +33,8 @@
 #include "constants/trainers.h"
 #include "constants/union_room.h"
 
+#include "play_time.h"
+
 enum {
     WIN_MSG,
     WIN_CARD_TEXT,
@@ -1118,10 +1120,10 @@ static void PrintTimeOnCard(void)
         minutes = gSaveBlock2Ptr->playTimeMinutes;
     }
 
-    if (hours > 999)
-        hours = 999;
-    if (minutes > 59)
-        minutes = 59;
+    if (hours > MAX_PLAY_TIME_HOURS)
+        hours = MAX_PLAY_TIME_HOURS;
+    if (minutes > (MAX_PLAY_TIME_MINUTES - 1))
+        minutes = (MAX_PLAY_TIME_MINUTES - 1);
     width = GetStringWidth(FONT_NORMAL, gText_Colon2, 0);
 
     if (!sData->isHoenn)
@@ -1138,9 +1140,9 @@ static void PrintTimeOnCard(void)
     x -= totalWidth;
 
     FillWindowPixelRect(WIN_CARD_TEXT, PIXEL_FILL(0), x, y, totalWidth, 15);
-    ConvertIntToDecimalStringN(gStringVar4, hours, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVar4, hours, STR_CONV_MODE_RIGHT_ALIGN, PT_HOUR_STR_LEN);
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, x, y, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
-    x += 18;
+    x += 24;
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, x, y, sTimeColonTextColors[sData->timeColonInvisible], TEXT_SKIP_DRAW, gText_Colon2);
     x += width;
     ConvertIntToDecimalStringN(gStringVar4, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);

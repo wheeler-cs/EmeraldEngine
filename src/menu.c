@@ -20,6 +20,8 @@
 #include "window.h"
 #include "constants/songs.h"
 
+#include "play_time.h"
+
 #define DLG_WINDOW_PALETTE_NUM 15
 #define DLG_WINDOW_BASE_TILE_NUM 0x200
 #define STD_WINDOW_PALETTE_NUM 14
@@ -67,7 +69,6 @@ static EWRAM_DATA u16 sTileNum = 0;
 static EWRAM_DATA u8 sPaletteNum = 0;
 static EWRAM_DATA u8 sYesNoWindowId = 0;
 static EWRAM_DATA u8 sHofPCTopBarWindowId = 0;
-static EWRAM_DATA u16 sFiller = 0;  // needed to align
 static EWRAM_DATA bool8 sScheduledBgCopiesToVram[4] = {FALSE};
 static EWRAM_DATA u16 sTempTileDataBufferIdx = 0;
 static EWRAM_DATA void *sTempTileDataBuffer[0x20] = {NULL};
@@ -2127,7 +2128,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
             *string = EOS;
             break;
         case SAVE_MENU_PLAY_TIME:
-            string = ConvertIntToDecimalStringN(string, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_LEFT_ALIGN, 3);
+            string = ConvertIntToDecimalStringN(string, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_LEFT_ALIGN, PT_HOUR_STR_LEN);
             *(string++) = CHAR_COLON;
             ConvertIntToDecimalStringN(string, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
             break;
