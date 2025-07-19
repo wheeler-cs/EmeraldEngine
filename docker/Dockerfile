@@ -8,8 +8,15 @@ SHELL ["/bin/bash", "-c"]
 RUN apt update
 RUN apt install build-essential binutils-arm-none-eabi git libpng-dev pkgconf vim -y
 
-# Initialize user
+# Add new user
 RUN useradd -ms /bin/bash emdev
+
+# Copy SSH
+RUN mkdir .ssh
+COPY .ssh/* .ssh/
+RUN chown -R emdev:emdev .ssh/* 
+
+# Initialize user
 USER emdev
 WORKDIR "/home/emdev"
 
@@ -17,10 +24,6 @@ WORKDIR "/home/emdev"
 RUN git clone https://github.com/wheeler-cs/EmeraldEngine
 RUN git clone https://github.com/pret/agbcc
 RUN cd agbcc && ./build.sh && ./install.sh ../EmeraldEngine
-
-# Copy SSH
-RUN mkdir .ssh
-COPY .ssh/* .ssh/
 
 # Setup repo git
 WORKDIR "/home/emdev/EmeraldEngine"
