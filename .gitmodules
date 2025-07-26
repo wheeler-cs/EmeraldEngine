@@ -1,3 +1,6 @@
 [submodule "docs/BerylDocs"]
 	path = docs/BerylDocs
 	url = https://github.com/wheeler-cs/BerylDocs
+[submodule "tools/lipx"]
+	path = tools/lipx
+	url = https://github.com/kylon/lipx

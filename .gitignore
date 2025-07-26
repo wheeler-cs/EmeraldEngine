@@ -42,3 +42,4 @@ prefabs.json
 /pokeemerald_modern-*.png
 
 docker/.ssh/github
+*.ips
