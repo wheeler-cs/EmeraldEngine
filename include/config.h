@@ -55,4 +55,6 @@
 #endif
 #endif
 
+#define ANNA_DEBUG
+
 #endif // GUARD_CONFIG_H

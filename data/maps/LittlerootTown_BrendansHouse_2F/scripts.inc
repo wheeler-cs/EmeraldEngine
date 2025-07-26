@@ -125,6 +125,15 @@ LittlerootTown_BrendansHouse_2F_EventScript_MeetBrendanEast::
 	waitmovement 0
 	return
 
+LittlerootTown_BrendansHouse_2F_EventScript_WarpToDebug::
+	checkitem ITEM_034
+	call_if_set VAR_RESULT, LittlerootTown_BrendansHouse_2F_EventScript_WarpDebug
+	end
+
+LittlerootTown_BrendansHouse_2F_EventScript_WarpDebug::
+	warp MAP_DEBUG_MAP_MAIN, 1, 6
+	end
+
 LittlerootTown_BrendansHouse_2F_Movement_BrendanEnters:
 	walk_down
 	walk_down
