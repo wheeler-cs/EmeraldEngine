@@ -1,0 +1,3 @@
+[submodule "docs/BerylDocs"]
+	path = docs/BerylDocs
+	url = https://github.com/wheeler-cs/BerylDocs
