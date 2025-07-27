@@ -89,11 +89,36 @@ EventScript_SmashRock::
 	removeobject VAR_LAST_TALKED
 	specialvar VAR_RESULT, TryUpdateRusturfTunnelState
 	goto_if_eq VAR_RESULT, TRUE, EventScript_EndSmash
+	specialvar VAR_RESULT, TryGiveRockSmashItem
+	goto_if_eq VAR_RESULT, TRUE, EventScript_RockSmashItem
 	special RockSmashWildEncounter
 	goto_if_eq VAR_RESULT, FALSE, EventScript_EndSmash
 	waitstate
 	releaseall
 	end
+
+EventScript_RockSmashItem::
+	checkitemspace VAR_0x8004, 1
+	copyvar VAR_0x8007, VAR_RESULT
+	bufferitemnameplural STR_VAR_2, VAR_0x8004, 1
+	checkitemtype VAR_0x8004
+	call EventScript_BufferPocketNameAndTryFanfare
+	call_if_eq VAR_0x8007, TRUE, EventScript_RockSmashPickUpItem
+	call_if_eq VAR_0x8007, FALSE, EventScript_NoRoomToPickUpItem
+	goto EventScript_EndSmash
+
+EventScript_RockSmashPickUpItem::
+	delay 16
+	additem VAR_0x8004, 1
+	msgbox Text_FoundItemInRubble
+	waitfanfare
+	waitmessage
+	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	return
+
+Text_FoundItemInRubble::
+	.string "{PLAYER} found one {STR_VAR_2} in the\n"
+	.string "rubble!$"
 
 EventScript_EndSmash::
 	releaseall

@@ -13,3 +13,8 @@ DebugMain_TestLinkStone::
 	giveitem ITEM_METAL_COAT
 	givemon SPECIES_ONIX, 40
 	end
+
+DebugMapMain_GiveRockSmash::
+	setflag FLAG_BADGE03_GET
+	giveitem ITEM_HM_ROCK_SMASH
+	end

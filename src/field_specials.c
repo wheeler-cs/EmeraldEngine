@@ -67,6 +67,7 @@
 #include "palette.h"
 
 #include "play_time.h"
+#include "item.h"
 
 #define TAG_ITEM_ICON 5500
 
@@ -1411,6 +1412,28 @@ u8 TryUpdateRusturfTunnelState(void)
         else if (FlagGet(FLAG_HIDE_RUSTURF_TUNNEL_ROCK_2))
         {
             VarSet(VAR_RUSTURF_TUNNEL_STATE, 5);
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+/** Attempt to give item after using Rock Smash as a field move.
+ * 
+ * @returns If an item was given.
+ * 
+ */
+u8 TryGiveRockSmashItem(void)
+{
+    u16 rand = Random() % 100;
+    // Special drop table for Gemrock Cavern
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_GEMROCK_CAVERN)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_GEMROCK_CAVERN))
+    {
+        // 20% chance to drop evo stone
+        if(rand < 20)
+        {
+            gSpecialVar_0x8004 = (rand % 7) + FIRST_EVO_STONE;
             return TRUE;
         }
     }

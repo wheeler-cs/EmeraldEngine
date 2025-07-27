@@ -294,6 +294,13 @@
       "elevation": 0,
       "dest_map": "MAP_ALTERING_CAVE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 69,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_GEMROCK_CAVERN",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

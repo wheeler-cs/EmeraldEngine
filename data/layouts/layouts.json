@@ -4420,6 +4420,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/DebugMapMain/border.bin",
       "blockdata_filepath": "data/layouts/DebugMapMain/map.bin"
+    },
+    {
+      "id": "LAYOUT_GEMROCK_CAVERN",
+      "name": "GemrockCavern_Layout",
+      "width": 9,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/GemrockCavern/border.bin",
+      "blockdata_filepath": "data/layouts/GemrockCavern/map.bin"
     }
   ]
 }
