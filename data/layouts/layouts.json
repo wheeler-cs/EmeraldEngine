@@ -4430,6 +4430,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/GemrockCavern/border.bin",
       "blockdata_filepath": "data/layouts/GemrockCavern/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_WOODS_EAST",
+      "name": "PetalburgWoodsEast_Layout",
+      "width": 24,
+      "height": 44,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/PetalburgWoodsEast/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgWoodsEast/map.bin"
     }
   ]
 }

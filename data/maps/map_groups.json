@@ -431,7 +431,8 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "GemrockCavern"
+    "GemrockCavern",
+    "PetalburgWoodsEast"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

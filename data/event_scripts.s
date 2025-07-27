@@ -1060,3 +1060,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/DebugMapMain/scripts.inc"
 
 	.include "data/maps/GemrockCavern/scripts.inc"
+
+	.include "data/maps/PetalburgWoodsEast/scripts.inc"
