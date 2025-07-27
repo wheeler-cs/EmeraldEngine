@@ -6981,14 +6981,14 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
 
 const u8 *GetTrainerClassNameFromId(u16 trainerId)
 {
-    if (trainerId >= TRAINERS_COUNT)
+    if (trainerId >= LAST_TRAINER_FLAG)
         trainerId = TRAINER_NONE;
     return gTrainerClassNames[gTrainers[trainerId].trainerClass];
 }
 
 const u8 *GetTrainerNameFromId(u16 trainerId)
 {
-    if (trainerId >= TRAINERS_COUNT)
+    if (trainerId >= LAST_TRAINER_FLAG)
         trainerId = TRAINER_NONE;
     return gTrainers[trainerId].trainerName;
 }
