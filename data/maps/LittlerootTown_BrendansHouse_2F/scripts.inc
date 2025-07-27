@@ -126,7 +126,7 @@ LittlerootTown_BrendansHouse_2F_EventScript_MeetBrendanEast::
 	return
 
 LittlerootTown_BrendansHouse_2F_EventScript_WarpToDebug::
-	checkitem ITEM_034
+	checkitem ITEM_DEBUGGER
 	call_if_set VAR_RESULT, LittlerootTown_BrendansHouse_2F_EventScript_WarpDebug
 	end
 

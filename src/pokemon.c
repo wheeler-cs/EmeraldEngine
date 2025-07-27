@@ -5577,11 +5577,46 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
         }
         break;
     case EVO_MODE_ITEM_USE:
+        for (i = 0; i < EVOS_PER_MON; i++)
+        {
+            // Link stone for non-held item trades
+            if (gEvolutionTable[species][i].method == EVO_TRADE
+                  && evolutionItem == ITEM_LINK_STONE)
+            {
+                targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            }
+            // Link stone for held item trades
+            else if (gEvolutionTable[species][i].method == EVO_TRADE_ITEM
+                  && gEvolutionTable[species][i].param == heldItem
+                  && evolutionItem == ITEM_LINK_STONE)
+            {
+                heldItem = ITEM_NONE;
+                SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
+                targetSpecies = gEvolutionTable[species][i].targetSpecies;
+            }
+        }
     case EVO_MODE_ITEM_CHECK:
         for (i = 0; i < EVOS_PER_MON; i++)
         {
+            // Normal item evolution
             if (gEvolutionTable[species][i].method == EVO_ITEM
              && gEvolutionTable[species][i].param == evolutionItem)
+            {
+                targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            }
+            // Link stone for non-held item trades
+            if (gEvolutionTable[species][i].method == EVO_TRADE
+                  && evolutionItem == ITEM_LINK_STONE)
+            {
+                targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            }
+            // Link stone for held item trades
+            else if (gEvolutionTable[species][i].method == EVO_TRADE_ITEM
+                  && gEvolutionTable[species][i].param == heldItem
+                  && evolutionItem == ITEM_LINK_STONE)
             {
                 targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;

@@ -226,7 +226,7 @@ static const u16 sNewGamePCItems[][2] =
 {
     { ITEM_POTION, 1 },
 #ifdef ANNA_DEBUG
-    { ITEM_034, 1},
+    { ITEM_DEBUGGER, 1},
 #endif
     { ITEM_NONE, 0 }
 };

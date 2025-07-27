@@ -19,7 +19,7 @@
 
 // Note: If moving ball IDs around, updating FIRST_BALL/LAST_BALL is not sufficient
 //       Several places expect the ball IDs to be first and contiguous (e.g. gBattlescriptsForBallThrow and MON_DATA_POKEBALL)
-//       If adding new balls, it's easiest to insert them after the last ball and increment the below IDs (and removing ITEM_034 for example)
+//       If adding new balls, it's easiest to insert them after the last ball and increment the below IDs (and removing ITEM_035 for example)
 #define FIRST_BALL ITEM_MASTER_BALL
 #define LAST_BALL  ITEM_PREMIER_BALL
 
@@ -63,7 +63,7 @@
 #define ITEM_BLUE_SHARD 49
 #define ITEM_YELLOW_SHARD 50
 #define ITEM_GREEN_SHARD 51
-#define ITEM_034 52
+#define ITEM_DEBUGGER 52
 #define ITEM_035 53
 #define ITEM_036 54
 #define ITEM_037 55
@@ -110,7 +110,7 @@
 #define ITEM_THUNDER_STONE 96
 #define ITEM_WATER_STONE 97
 #define ITEM_LEAF_STONE 98
-#define ITEM_063 99
+#define ITEM_LINK_STONE 99
 #define ITEM_064 100
 #define ITEM_065 101
 #define ITEM_066 102

@@ -234,7 +234,17 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_RESULT",
+      "var_value": "0",
+      "script": "LittlerootTown_BrendansHouse_2F_EventScript_WarpToDebug"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -267,14 +277,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PlayersHouse_2F_EventScript_GameCube"
-    },
-    {
-      "type": "sign",
-      "x": 6,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_BrendansHouse_2F_EventScript_WarpToDebug"
     }
   ]
 }
