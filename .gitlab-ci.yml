@@ -4,6 +4,9 @@ stages:
 run_patcher:
     stage: patch_creation
     script:
+        - git clone http://ceres.local:8096/user/pokemonemeraldrom.git
+        - cp pokemonemeraldrom/pokeemerald.gba .
+        - git clone https://github.com/kylon/lipx ./tools/lipx
         - chmod +x ./patch.sh
         - ./patch.sh
 
