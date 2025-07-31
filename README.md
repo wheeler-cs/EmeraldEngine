@@ -8,6 +8,7 @@ accomplish this, a number of changes to the base game and the toolchain itself h
 | [Non-Docker Build](#non-docker-build) |
 | [Docker Build](#docker-build) |
 | [SSH Keys](#ssh-keys) |
+| [Documentation](#documentation) |
 | [Distribution](#distribution) |
 | [Legal](#legal) |
 | [References](#references) |
@@ -87,6 +88,9 @@ several extensions that can do this.
 Building a Docker container handles most of the backend infrastructure, setting up all of the components of the
 toolchain for building. The final step of building the ROM requires issuing the `make` command. See the section on
 [non-Docker installations](#nondocker-install) for a brief explanation on best practices when using `make`.
+
+
+## <a id=documentation>Documentation</a>
 
 
 ## <a id=ssh-keys>SSH Keys</a>
