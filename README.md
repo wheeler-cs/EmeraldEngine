@@ -91,6 +91,8 @@ toolchain for building. The final step of building the ROM requires issuing the 
 
 
 ## <a id=documentation>Documentation</a>
+Documentation is provided in the form of a [GitHub Pages website](https://wheeler-cs.github.io/BerylDocs/) and is
+updated in parallel with the project. Changes to the game will be listed on this site as they are implemented.
 
 
 ## <a id=ssh-keys>SSH Keys</a>
