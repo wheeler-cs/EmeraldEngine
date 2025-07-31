@@ -4,7 +4,7 @@ stages:
 patch_creation:
     stage: patch_creation
     tags:
-        patch_creation
+        - patch_creation
     script:
         - git clone http://ceres.local:8096/user/pokemonemeraldrom.git
         - cp pokemonemeraldrom/pokeemerald.gba .
