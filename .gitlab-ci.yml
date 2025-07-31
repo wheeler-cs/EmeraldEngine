@@ -1,0 +1,9 @@
+stages:
+    - patch_creation
+
+run_patcher:
+    stage: patch_creation
+    script:
+        - chmod +x ./patch.sh
+        - ./patch.sh
+
