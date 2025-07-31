@@ -1,7 +1,7 @@
 stages:
     - patch_creation
 
-run_patcher:
+patch_creation:
     stage: patch_creation
     script:
         - git clone http://ceres.local:8096/user/pokemonemeraldrom.git
