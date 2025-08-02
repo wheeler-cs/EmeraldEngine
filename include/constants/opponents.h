@@ -856,6 +856,7 @@
 #define TRAINER_LEAF                        852
 #define TRAINER_BRENDAN_PLACEHOLDER         853
 #define TRAINER_MAY_PLACEHOLDER             854
+#define TRAINER_HEX_MANIAC_LILY             855
 
 #define LAST_TRAINER_FLAG (TRAINER_MAY_PLACEHOLDER)
 
