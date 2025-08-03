@@ -641,8 +641,11 @@ u8 BattleSetup_GetEnvironmentId(void)
     PlayerGetDestCoords(&x, &y);
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
-    if (MetatileBehavior_IsTallGrass(tileBehavior))
+    if (MetatileBehavior_IsTallGrass(tileBehavior) ||
+        MetatileBehavior_IsTallGrassAlt(tileBehavior))
+    {
         return BATTLE_ENVIRONMENT_GRASS;
+    }
     if (MetatileBehavior_IsLongGrass(tileBehavior))
         return BATTLE_ENVIRONMENT_LONG_GRASS;
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
