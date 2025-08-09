@@ -34,6 +34,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_LOST_BOY",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 13,
       "y": 34,
@@ -45,6 +46,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PetalburgWoodsEast_EventScript_LostBoy",
       "flag": "FLAG_HIDE_PETALBURG_WOODS_EAST_LOST_BOY"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 9,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 10,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_12"
     }
   ],
   "warp_events": [
