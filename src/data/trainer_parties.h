@@ -12447,3 +12447,16 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HexManiacLily[] = {
         .species = SPECIES_DROWZEE,
     }
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterMichael[] = {
+    {
+    .iv = 0,
+    .lvl = 11,
+    .species = SPECIES_SENTRET,
+    },
+    {
+    .iv = 0,
+    .lvl = 12,
+    .species = SPECIES_SLAKOTH,
+    }
+};

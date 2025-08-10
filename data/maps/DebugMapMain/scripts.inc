@@ -15,6 +15,5 @@ DebugMain_TestLinkStone::
 	end
 
 DebugMapMain_GiveRockSmash::
-	setflag FLAG_BADGE03_GET
-	giveitem ITEM_HM_ROCK_SMASH
+	setflag FLAG_BADGE04_GET
 	end
