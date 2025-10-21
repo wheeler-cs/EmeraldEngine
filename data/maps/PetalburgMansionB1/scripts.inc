@@ -49,7 +49,6 @@ PetalburgMansionB1_BrokenTV::
 PetalburgMansionB1_HauntedTVEvent::
 	@ Ask player if they want to battle
 	msgbox PetalburgMansionB1_Text_TheTVFeelsLike, MSGBOX_YESNO
-	waitse
 	switch VAR_RESULT
 	case NO, PetalburgMansionB1_LeftTVAlone
 	case YES, PetalburgMansionB1_DoHauntedBoss
