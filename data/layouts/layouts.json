@@ -4440,6 +4440,26 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/PetalburgWoodsEast/border.bin",
       "blockdata_filepath": "data/layouts/PetalburgWoodsEast/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_MANSION1F",
+      "name": "PetalburgMansion1F_Layout",
+      "width": 20,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PetalburgMansion1F/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgMansion1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_MANSION_B1",
+      "name": "PetalburgMansionB1_Layout",
+      "width": 12,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PetalburgMansionB1/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgMansionB1/map.bin"
     }
   ]
 }

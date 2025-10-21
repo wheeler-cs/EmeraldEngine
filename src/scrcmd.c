@@ -2305,3 +2305,13 @@ bool8 ScrCmd_warpwhitefade(struct ScriptContext *ctx)
     ResetInitialPlayerAvatarState();
     return TRUE;
 }
+
+bool8 ScrCmd_setwildmonmove(struct ScriptContext *ctx)
+{
+    u16 move = ScriptReadHalfword(ctx);
+    u8 slot = ScriptReadByte(ctx);
+
+    SetMonData(&gEnemyParty[0], MON_DATA_MOVE1 + slot, &move);
+
+    return FALSE;
+}

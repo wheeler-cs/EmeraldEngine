@@ -1952,3 +1952,10 @@
 	setvar VAR_0x8006, \item
 	special CreateEnemyEventMon
 	.endm
+
+	@ Sets a move slot for a wild encounter to be a specific move.
+	.macro setwildmonmove move:req, slot:req
+	.byte SCR_OP_SETWILDMONMOVE
+	.2byte \move
+	.byte \slot
+	.endm

@@ -93,7 +93,8 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "PetalburgMansionB1"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -432,7 +433,8 @@
     "AlteringCave",
     "MeteorFalls_StevensCave",
     "GemrockCavern",
-    "PetalburgWoodsEast"
+    "PetalburgWoodsEast",
+    "PetalburgMansion1F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

@@ -458,10 +458,17 @@
 #define FLAG_SHOWN_MYSTIC_TICKET                   (MISC_FLAGS_START_GROUP_1 + 46)
 #define FLAG_DEFEATED_HO_OH                        (MISC_FLAGS_START_GROUP_1 + 47)
 #define FLAG_DEFEATED_LUGIA                        (MISC_FLAGS_START_GROUP_1 + 48)
-#define LAST_MISC_FLAG                             (FLAG_DEFEATED_LUGIA)
+#define FLAG_DEFEATED_HAUNTED_TV                   (MISC_FLAGS_START_GROUP_1 + 49)
+#define LAST_MISC_FLAG_GROUP_1                     (FLAG_DEFEATED_HAUNTED_TV)
+
+#define MISC_FLAGS_START_GROUP_2 (LAST_MISC_FLAG_GROUP_1 + 1)
+
+#define LAST_MISC_FLAG_GROUP_2 (MISC_FLAGS_START_GROUP_2)
+
+
 
 // Mystery Gift Flags (Unknown)
-#define MYSTERY_GIFT_START     (LAST_MISC_FLAG + 1)
+#define MYSTERY_GIFT_START     (LAST_MISC_FLAG_GROUP_2 + 1)
 #define FLAG_MYSTERY_GIFT_DONE (MYSTERY_GIFT_START + 0)
 #define FLAG_MYSTERY_GIFT_1    (MYSTERY_GIFT_START + 1)
 #define FLAG_MYSTERY_GIFT_2    (MYSTERY_GIFT_START + 2)
@@ -1228,7 +1235,8 @@
 #define FLAG_ARRIVED_AT_NAVEL_ROCK              (SYSTEM_FLAGS + 0x7E)
 #define FLAG_LANDMARK_TRAINER_HILL              (SYSTEM_FLAGS + 0x7F)
 #define FLAG_RECEIVED_POKEDEX_FROM_BIRCH        (SYSTEM_FLAGS + 0x80)
-#define LAST_SYSTEM_FLAG                        (FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+#define FLAG_IS_NIGHT                           (SYSTEM_FLAGS + 0x81)
+#define LAST_SYSTEM_FLAG                        (FLAG_IS_NIGHT)
 
 // Daily Flags - Cleared once per day
 // The start and end are byte-aligned because the flags are cleared in byte increments

@@ -537,3 +537,4 @@ gSpecials::
 	def_special CloseDeptStoreElevatorWindow
 	def_special TrySetBattleTowerLinkType
 	def_special PlayTimeCounter_SetToMax
+	def_special UpdateNightFlag

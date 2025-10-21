@@ -116,3 +116,18 @@ void UpdateBirchState(u16 days)
     *state += days;
     *state %= 7;
 }
+
+void UpdateNightFlag(void)
+{
+    RtcCalcLocalTime();
+    // Night goes from 
+    if((gLocalTime.hours < EVENT_NIGHT_END) ||
+       (gLocalTime.hours >= EVENT_NIGHT_START))
+    {
+        FlagSet(FLAG_IS_NIGHT);
+    }
+    else
+    {
+        FlagClear(FLAG_IS_NIGHT);
+    }
+}
