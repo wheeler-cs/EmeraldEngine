@@ -434,7 +434,8 @@
     "MeteorFalls_StevensCave",
     "GemrockCavern",
     "PetalburgWoodsEast",
-    "PetalburgMansion1F"
+    "PetalburgMansion1F",
+    "PetalburgMansion_B2"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

@@ -4460,6 +4460,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/PetalburgMansionB1/border.bin",
       "blockdata_filepath": "data/layouts/PetalburgMansionB1/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_MANSION_B2",
+      "name": "PetalburgMansion_B2_Layout",
+      "width": 20,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PetalburgMansion_B2/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgMansion_B2/map.bin"
     }
   ]
 }
