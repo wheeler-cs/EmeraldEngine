@@ -168,6 +168,19 @@ const struct Item gItems[] =
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_PREMIER_BALL - FIRST_BALL,
     },
+    [ITEM_FAST_BALL] =
+    {
+        .name = _("FAST BALL"),
+        .itemId = ITEM_FAST_BALL,
+        .price = 300,
+        .description = sFastBallDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_FAST_BALL - FIRST_BALL,
+        .battleUsage = ITEM_B_USE_OTHER,
+        .battleUseFunc = ItemUseInBattle_PokeBall,
+        .secondaryId = ITEM_FAST_BALL - FIRST_BALL,
+    },
+
 
 // Medicine
 

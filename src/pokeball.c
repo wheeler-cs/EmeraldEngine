@@ -56,6 +56,18 @@ static u16 GetBattlerPokeballItemId(u8 battler);
 #define GFX_TAG_TIMER_BALL   55009
 #define GFX_TAG_LUXURY_BALL  55010
 #define GFX_TAG_PREMIER_BALL 55011
+#define GFX_TAG_FAST         55012
+#define GFX_TAG_LEVEL        55013
+#define GFX_TAG_LURE         55014
+#define GFX_TAG_HEAVY        55015
+#define GFX_TAG_LOVE         55016
+#define GFX_TAG_FRIEND       55017
+#define GFX_TAG_MOON         55018
+#define GFX_TAG_SPORT        55032
+#define GFX_TAG_DUSK         55033
+#define GFX_TAG_HEAL         55034
+#define GFX_TAG_QUICK        55035
+#define GFX_TAG_CHERISH      55036
 
 const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
 {
