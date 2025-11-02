@@ -56,18 +56,18 @@ static u16 GetBattlerPokeballItemId(u8 battler);
 #define GFX_TAG_TIMER_BALL   55009
 #define GFX_TAG_LUXURY_BALL  55010
 #define GFX_TAG_PREMIER_BALL 55011
-#define GFX_TAG_FAST         55012
-#define GFX_TAG_LEVEL        55013
-#define GFX_TAG_LURE         55014
-#define GFX_TAG_HEAVY        55015
-#define GFX_TAG_LOVE         55016
-#define GFX_TAG_FRIEND       55017
-#define GFX_TAG_MOON         55018
-#define GFX_TAG_SPORT        55032
-#define GFX_TAG_DUSK         55033
-#define GFX_TAG_HEAL         55034
-#define GFX_TAG_QUICK        55035
-#define GFX_TAG_CHERISH      55036
+#define GFX_TAG_FAST_BALL    55073
+#define GFX_TAG_LEVEL_BALL   55074
+#define GFX_TAG_LURE_BALL    55075
+#define GFX_TAG_HEAVY_BALL   55076
+#define GFX_TAG_LOVE_BALL    55077
+#define GFX_TAG_FRIEND_BALL  55078
+#define GFX_TAG_MOON_BALL    55079
+#define GFX_TAG_SPORT_BALL   55080
+#define GFX_TAG_DUSK_BALL    55081
+#define GFX_TAG_HEAL_BALL    55082
+#define GFX_TAG_QUICK_BALL   55083
+#define GFX_TAG_CHERISH_BALL 55084
 
 const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
 {
@@ -83,6 +83,18 @@ const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
     [BALL_TIMER]   = {gBallGfx_Timer,   384, GFX_TAG_TIMER_BALL},
     [BALL_LUXURY]  = {gBallGfx_Luxury,  384, GFX_TAG_LUXURY_BALL},
     [BALL_PREMIER] = {gBallGfx_Premier, 384, GFX_TAG_PREMIER_BALL},
+    [BALL_DUSK]    = {gBallGfx_Dusk,    384, GFX_TAG_DUSK_BALL},
+    [BALL_HEAL]    = {gBallGfx_Heal,    384, GFX_TAG_HEAL_BALL},
+    [BALL_QUICK]   = {gBallGfx_Quick,   384, GFX_TAG_QUICK_BALL},
+    [BALL_CHERISH] = {gBallGfx_Cherish, 384, GFX_TAG_CHERISH_BALL},
+    [BALL_FAST]    = {gBallGfx_Fast,    384, GFX_TAG_FAST_BALL},
+    [BALL_LEVEL]   = {gBallGfx_Level,   384, GFX_TAG_LEVEL_BALL},
+    [BALL_LURE]    = {gBallGfx_Lure,    384, GFX_TAG_LURE_BALL},
+    [BALL_HEAVY]   = {gBallGfx_Heavy,   384, GFX_TAG_HEAVY_BALL},
+    [BALL_LOVE]    = {gBallGfx_Love,    384, GFX_TAG_LOVE_BALL},
+    [BALL_FRIEND]  = {gBallGfx_Friend,  384, GFX_TAG_FRIEND_BALL},
+    [BALL_MOON]    = {gBallGfx_Moon,    384, GFX_TAG_MOON_BALL},
+    [BALL_SPORT]   = {gBallGfx_Sport,   384, GFX_TAG_SPORT_BALL},
 };
 
 const struct CompressedSpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
@@ -99,6 +111,18 @@ const struct CompressedSpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
     [BALL_TIMER]   = {gBallPal_Timer,   GFX_TAG_TIMER_BALL},
     [BALL_LUXURY]  = {gBallPal_Luxury,  GFX_TAG_LUXURY_BALL},
     [BALL_PREMIER] = {gBallPal_Premier, GFX_TAG_PREMIER_BALL},
+    [BALL_DUSK]    = {gBallPal_Dusk,    GFX_TAG_DUSK_BALL},
+    [BALL_HEAL]    = {gBallPal_Heal,    GFX_TAG_HEAL_BALL},
+    [BALL_QUICK]   = {gBallPal_Quick,   GFX_TAG_QUICK_BALL},
+    [BALL_CHERISH] = {gBallPal_Cherish, GFX_TAG_CHERISH_BALL},
+    [BALL_FAST]    = {gBallPal_Fast,    GFX_TAG_FAST_BALL},
+    [BALL_LEVEL]   = {gBallPal_Level,   GFX_TAG_LEVEL_BALL},
+    [BALL_LURE]    = {gBallPal_Lure,    GFX_TAG_LURE_BALL},
+    [BALL_HEAVY]   = {gBallPal_Heavy,   GFX_TAG_HEAVY_BALL},
+    [BALL_LOVE]    = {gBallPal_Love,    GFX_TAG_LOVE_BALL},
+    [BALL_FRIEND]  = {gBallPal_Friend,  GFX_TAG_FRIEND_BALL},
+    [BALL_MOON]    = {gBallPal_Moon,    GFX_TAG_MOON_BALL},
+    [BALL_SPORT]   = {gBallPal_Sport,   GFX_TAG_SPORT_BALL},
 };
 
 static const struct OamData sBallOamData =

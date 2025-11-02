@@ -238,6 +238,19 @@ static const u8 sBallParticleAnimNums[POKEBALL_COUNT] =
     [BALL_TIMER]   = 5,
     [BALL_LUXURY]  = 4,
     [BALL_PREMIER] = 4,
+    // TODO: Set to correct value
+    [BALL_FAST]    = 0,
+    [BALL_LEVEL]   = 0,
+    [BALL_LURE]    = 0,
+    [BALL_HEAVY]   = 0,
+    [BALL_LOVE]    = 0,
+    [BALL_FRIEND]  = 0,
+    [BALL_MOON]    = 0,
+    [BALL_SPORT]   = 0,
+    [BALL_DUSK]    = 0,
+    [BALL_HEAL]    = 0,
+    [BALL_QUICK]   = 0,
+    [BALL_CHERISH] = 0,
 };
 
 static const TaskFunc sBallParticleAnimationFuncs[POKEBALL_COUNT] =
@@ -254,6 +267,19 @@ static const TaskFunc sBallParticleAnimationFuncs[POKEBALL_COUNT] =
     [BALL_TIMER]   = TimerBallOpenParticleAnimation,
     [BALL_LUXURY]  = GreatBallOpenParticleAnimation,
     [BALL_PREMIER] = PremierBallOpenParticleAnimation,
+    // TODO: Create custom particle animations
+    [BALL_FAST] = PokeBallOpenParticleAnimation,
+    [BALL_LEVEL] = PokeBallOpenParticleAnimation,
+    [BALL_LURE] = PokeBallOpenParticleAnimation,
+    [BALL_HEAVY] = PokeBallOpenParticleAnimation,
+    [BALL_LOVE] = PokeBallOpenParticleAnimation,
+    [BALL_FRIEND] = PokeBallOpenParticleAnimation,
+    [BALL_MOON] = PokeBallOpenParticleAnimation,
+    [BALL_SPORT] = PokeBallOpenParticleAnimation,
+    [BALL_DUSK] = PokeBallOpenParticleAnimation,
+    [BALL_HEAL] = PokeBallOpenParticleAnimation,
+    [BALL_QUICK] = PokeBallOpenParticleAnimation,
+    [BALL_CHERISH] = PokeBallOpenParticleAnimation,
 };
 
 static const struct SpriteTemplate sBallParticleSpriteTemplates[POKEBALL_COUNT] =
@@ -382,6 +408,22 @@ const u16 gBallOpenFadeColors[] =
     [BALL_TIMER] = RGB(29, 30, 30),
     [BALL_LUXURY] = RGB(31, 17, 10),
     [BALL_PREMIER] = RGB(31, 9, 10),
+
+    // TODO: Change these to be more fitting
+    [BALL_FAST] = RGB(31, 9, 10),
+    [BALL_LEVEL] = RGB(31, 9, 10),
+    [BALL_LURE] = RGB(31, 9, 10),
+    [BALL_HEAVY] = RGB(31, 9, 10),
+    [BALL_LOVE] = RGB(31, 9, 10),
+    [BALL_FRIEND] = RGB(31, 9, 10),
+    [BALL_MOON] = RGB(31, 9, 10),
+    [BALL_SPORT] = RGB(31, 9, 10),
+    [BALL_DUSK] = RGB(31, 9, 10),
+    [BALL_HEAL] = RGB(31, 9, 10),
+    [BALL_QUICK] = RGB(31, 9, 10),
+    [BALL_CHERISH] = RGB(31, 9, 10),
+
+
 
     // Garbage data
     RGB_BLACK,
@@ -751,6 +793,30 @@ u8 ItemIdToBallId(u16 ballItem)
         return BALL_LUXURY;
     case ITEM_PREMIER_BALL:
         return BALL_PREMIER;
+    case ITEM_FAST_BALL:
+        return BALL_FAST;
+    case ITEM_LEVEL_BALL:
+        return BALL_FAST;
+    case ITEM_LURE_BALL:
+        return BALL_LURE;
+    case ITEM_HEAVY_BALL:
+        return BALL_HEAVY;
+    case ITEM_LOVE_BALL:
+        return BALL_LOVE;
+    case ITEM_FRIEND_BALL:
+        return BALL_FRIEND;
+    case ITEM_MOON_BALL:
+        return BALL_MOON;
+    case ITEM_SPORT_BALL:
+        return BALL_SPORT;
+    case ITEM_DUSK_BALL:
+        return BALL_DUSK;
+    case ITEM_HEAL_BALL:
+        return BALL_HEAL;
+    case ITEM_QUICK_BALL:
+        return BALL_QUICK;
+    case ITEM_CHERISH_BALL:
+        return BALL_CHERISH;
     case ITEM_POKE_BALL:
     default:
         return BALL_POKE;
