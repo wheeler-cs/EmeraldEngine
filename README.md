@@ -53,7 +53,8 @@ make
 ```
 
 This can be sped up by providing the `-j#` along with `make`, substituting `#` with any number. The number should
-generally be less than or equal to the number of threads your CPU has.
+generally be less than or equal to the number of threads your CPU has. The `nproc` command can be used to get the number
+of threads your CPU has.
 
 ```
 make -j4

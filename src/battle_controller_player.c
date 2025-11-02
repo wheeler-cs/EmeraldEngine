@@ -322,6 +322,14 @@ static void HandleInputChooseAction(void)
             BtlController_EmitTwoReturnValues(B_COMM_TO_ENGINE, B_ACTION_CANCEL_PARTNER, 0);
             PlayerBufferExecCompleted();
         }
+        // Highlight "RUN" when B is pressed
+        else
+        {
+            PlaySE(SE_SELECT);
+            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+            gActionSelectionCursor[gActiveBattler] = B_ACTION_RUN;
+            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+        }
     }
     else if (JOY_NEW(START_BUTTON))
     {
