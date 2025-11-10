@@ -47,6 +47,11 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#ifdef ANNA_DEBUG
+EWRAM_DATA u16 debugMonBallId;
+//EWRAM_DATA static u8 debugBallId;
+#endif
+
 enum {
     PSS_PAGE_INFO,
     PSS_PAGE_SKILLS,
@@ -4041,6 +4046,11 @@ static void RemoveAndCreateMonMarkingsSprite(struct Pokemon *mon)
 static void CreateCaughtBallSprite(struct Pokemon *mon)
 {
     u8 ball = ItemIdToBallId(GetMonData(mon, MON_DATA_POKEBALL));
+
+    #ifdef ANNA_DEBUG
+    debugMonBallId = GetMonData(mon, MON_DATA_POKEBALL);
+    //debugBallId = ball;
+    #endif
 
     LoadBallGfx(ball);
     sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_BALL] = CreateSprite(&gBallSpriteTemplates[ball], 16, 136, 0);

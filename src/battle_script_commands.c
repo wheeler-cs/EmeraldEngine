@@ -52,6 +52,13 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 
+#include "wild_encounter.h"
+#include "rtc.h"
+
+#ifdef ANNA_DEBUG
+EWRAM_DATA u8 debugBallMultiplier;
+#endif
+
 extern const u8 *const gBattleScriptsForMoveEffects[];
 
 #define DEFENDER_IS_PROTECTED ((gProtectStructs[gBattlerTarget].protected) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED))
@@ -9949,8 +9956,14 @@ static void Cmd_handleballthrow(void)
     }
     else
     {
-        u32 odds;
-        u8 catchRate;
+        u32 odds,
+            tempVar;
+        u16 tempHalfWord;
+        u8 catchRate,
+           enemyMonGender,
+           playerMonGender,
+           tempByte,
+           arg[4];
 
         if (gLastUsedItem == ITEM_SAFARI_BALL)
             catchRate = gBattleStruct->safariCatchFactor * 1275 / 100;
@@ -9996,15 +10009,125 @@ static void Cmd_handleballthrow(void)
                 if (ballMultiplier > 40)
                     ballMultiplier = 40;
                 break;
+            case ITEM_QUICK_BALL:
+                if(gBattleResults.battleTurnCounter > 0)
+                    ballMultiplier = 10;
+                else
+                    ballMultiplier = 40;
+                break;
             case ITEM_LUXURY_BALL:
             case ITEM_PREMIER_BALL:
+            case ITEM_FRIEND_BALL:
+            case ITEM_SPORT_BALL:
+            case ITEM_HEAL_BALL:
+            case ITEM_CHERISH_BALL:
                 ballMultiplier = 10;
+                break;
+            case ITEM_FAST_BALL:
+                if(gSpeciesInfo[gBattleMons[gBattlerTarget].species].baseSpeed >= 100)
+                    ballMultiplier = 40;
+                else
+                    ballMultiplier = 10;
+            case ITEM_LEVEL_BALL:
+                if(gBattleMons[gBattlerTarget].level >= gBattleMons[B_SIDE_PLAYER].level)
+                    ballMultiplier = 10;
+                else
+                {
+                    tempVar = gBattleMons[B_SIDE_PLAYER].level;
+                    if(tempVar * 4 >= (u32)gBattleMons[gBattlerTarget].level)
+                        ballMultiplier = 80;
+                    else if(tempVar * 2 >= (u32)gBattleMons[gBattlerTarget].level)
+                        ballMultiplier = 40;
+                    else if(tempVar >= (u32)gBattleMons[gBattlerTarget].level)
+                        ballMultiplier = 20;
+                }
+                break;
+            case ITEM_LURE_BALL:
+                if(gIsFishingEncounter)
+                    ballMultiplier = 30;
+                else
+                    ballMultiplier = 10;
+                break;
+            case ITEM_LOVE_BALL:
+                enemyMonGender = GetGenderFromSpeciesAndPersonality(gBattleMons[gBattlerTarget].species, gBattleMons[gBattlerTarget].personality);
+                playerMonGender = GetGenderFromSpeciesAndPersonality(gBattleMons[B_SIDE_PLAYER].species, gBattleMons[B_SIDE_PLAYER].personality);
+                if(enemyMonGender == MON_GENDERLESS || playerMonGender == MON_GENDERLESS)
+                    ballMultiplier = 10;
+                else if(enemyMonGender != playerMonGender)
+                    ballMultiplier = 80;
+                else
+                    ballMultiplier = 10;
+                break;
+            case ITEM_MOON_BALL:
+                switch(gBattleMons[gBattlerTarget].species)
+                {
+                    // Hard-coding valid targets because there's not a function that does what I want
+                    case SPECIES_NIDORINA:
+                    case SPECIES_NIDORINO:
+                    case SPECIES_CLEFAIRY:
+                    case SPECIES_JIGGLYPUFF:
+                    case SPECIES_SKITTY:
+                        ballMultiplier = 40;
+                        break;
+                    default:
+                        ballMultiplier = 10;
+                }
+                break;
+            case ITEM_DUSK_BALL:
+                if(gMapHeader.mapType == MAP_TYPE_UNDERGROUND || gMapHeader.mapType == MAP_TYPE_UNDERWATER)
+                    ballMultiplier = 35;
+                else if(gLocalTime.hours < 6 || gLocalTime.hours >= 20)
+                    ballMultiplier = 35;
+                else
+                    ballMultiplier = 10;
                 break;
             }
         }
         else
         {
             ballMultiplier = sBallCatchBonuses[gLastUsedItem - ITEM_ULTRA_BALL];
+        }
+        #ifdef ANNA_DEBUG
+        debugBallMultiplier = ballMultiplier;
+        #endif
+
+        // Heavy ball affects catch rate, not the ball multiplier
+        if(gLastUsedItem == ITEM_HEAVY_BALL)
+        {
+            u16 wildMonWeight = GetPokedexHeightWeight(gBattleMons[gBattlerTarget].species, 1);
+
+            if(wildMonWeight < 1023)
+            {
+                if(catchRate <= 20)
+                    catchRate = 0;
+                else
+                    catchRate -= 20;
+            }
+            else if(wildMonWeight < 2047)
+            {
+                catchRate += 0;
+            }
+            else if(wildMonWeight < 3071)
+            {
+                if(catchRate >= 235)
+                    catchRate = 255;
+                else
+                    catchRate += 20;
+            }
+            else if(wildMonWeight < 4095)
+            {
+                if(catchRate >= 225)
+                    catchRate = 255;
+                else
+                    catchRate += 30;
+            }
+            else
+            {
+                if(catchRate >= 215)
+                    catchRate = 255;
+                else
+                    catchRate += 40;
+            }
         }
 
         odds = (catchRate * ballMultiplier / 10)
@@ -10035,6 +10158,30 @@ static void Cmd_handleballthrow(void)
             MarkBattlerForControllerExec(gActiveBattler);
             gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
             SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &gLastUsedItem);
+            if(gLastUsedItem == ITEM_FRIEND_BALL)
+            {
+                tempByte = 200;
+                SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_FRIENDSHIP, &tempByte);
+            }
+            else if(gLastUsedItem == ITEM_HEAL_BALL)
+            {
+                tempHalfWord = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_MAX_HP);
+                // Set HP to max
+                arg[0] = tempHalfWord;
+                arg[1] = tempHalfWord >> 8;
+                SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_HP, arg);
+                tempByte = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_PP_BONUSES);
+                for(tempVar = 0; tempVar < MAX_MON_MOVES; tempVar++)
+                {
+                    arg[0] = CalculatePPWithBonus(GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_MOVE1 + tempVar), tempByte, tempVar);
+                    SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_PP1 + tempVar, arg);
+                }
+                arg[0] = 0;
+                arg[1] = 0;
+                arg[2] = 0;
+                arg[3] = 0;
+                SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_STATUS, arg);
+            }
 
             if (CalculatePlayerPartyCount() == PARTY_SIZE)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;
@@ -10060,6 +10207,30 @@ static void Cmd_handleballthrow(void)
             {
                 gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
                 SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &gLastUsedItem);
+                if(gLastUsedItem == ITEM_FRIEND_BALL)
+                {
+                    tempByte = 200;
+                    SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_FRIENDSHIP, &tempByte);
+                }
+            else if(gLastUsedItem == ITEM_HEAL_BALL)
+            {
+                tempHalfWord = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_MAX_HP);
+                // Set HP to max
+                arg[0] = tempHalfWord;
+                arg[1] = tempHalfWord >> 8;
+                SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_HP, arg);
+                tempByte = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_PP_BONUSES);
+                for(tempVar = 0; tempVar < MAX_MON_MOVES; tempVar++)
+                {
+                    arg[0] = CalculatePPWithBonus(GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_MOVE1 + tempVar), tempByte, tempVar);
+                    SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_PP1 + tempVar, arg);
+                }
+                arg[0] = 0;
+                arg[1] = 0;
+                arg[2] = 0;
+                arg[3] = 0;
+                SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_STATUS, arg);
+            }
 
                 if (CalculatePlayerPartyCount() == PARTY_SIZE)
                     gBattleCommunication[MULTISTRING_CHOOSER] = 0;

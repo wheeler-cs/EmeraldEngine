@@ -22,4 +22,6 @@
 #define RGB_CYAN       RGB(0, 31, 31)
 #define RGB_WHITEALPHA (RGB_WHITE | RGB_ALPHA)
 
+#define RGB_HEX(r, g, b) RGB(r >> 3, g >> 3, b >> 3)
+
 #endif // GUARD_RGB_H

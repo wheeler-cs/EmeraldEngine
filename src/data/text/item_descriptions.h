@@ -67,6 +67,68 @@ static const u8 sFastBallDesc[] = _(
     "catching fast\n"
     "POKéMON.");
 
+static const u8 sLevelBallDesc[] = _(
+    "A BALL made for\n"
+    "lower level\n"
+    "POKéMON.");
+
+static const u8 sLureBallDesc[] = _(
+    "A BALL for\n"
+    "POKéMON hooked\n"
+    "by a rod.");
+
+static const u8 sHeavyBallDesc[] =_(
+    "A BALL for\n"
+    "catching heavy\n"
+    "POKéMON.");
+
+static const u8 sLoveBallDesc[] = _(
+    "A BALL for\n"
+    "catching the\n"
+    "opposite gender.");
+
+static const u8 sFriendBallDesc[] = _(
+    "A BALL that\n"
+    "makes POKéMON\n"
+    "friendly."
+);
+
+static const u8 sMoonBallDesc[] = _(
+    "A BALL for\n"
+    "MOON STONE\n"
+    "evolvers."
+);
+
+static const u8 sSportBallDesc[] = _(
+    "A BALL for\n"
+    "catching\n"
+    "contests."
+);
+
+static const u8 sDuskBallDesc[] = _(
+    "A BALL for\n"
+    "dark places\n"
+    "or night."
+);
+
+static const u8 sHealBallDesc[] = _(
+    "A BALL that\n"
+    "heals upon\n"
+    "capture."
+);
+
+static const u8 sQuickBallDesc[] = _(
+    "A BALL for\n"
+    "the start of\n"
+    "battle."
+);
+
+static const u8 sCherishBallDesc[] = _(
+    "A BALL made\n"
+    "for a special\n"
+    "event."
+);
+
 // Medicine
 static const u8 sPotionDesc[] = _(
     "Restores the HP of\n"

@@ -1976,6 +1976,7 @@ static bool8 Fishing_StartEncounter(struct Task *task)
 
 static bool8 Fishing_NotEvenNibble(struct Task *task)
 {
+    gChainFishingStreak = 0;
     AlignFishingAnimationFrames();
     StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], GetFishingNoCatchDirectionAnimNum(GetPlayerFacingDirection()));
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
@@ -1986,6 +1987,7 @@ static bool8 Fishing_NotEvenNibble(struct Task *task)
 
 static bool8 Fishing_GotAway(struct Task *task)
 {
+    gChainFishingStreak = 0;
     AlignFishingAnimationFrames();
     StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], GetFishingNoCatchDirectionAnimNum(GetPlayerFacingDirection()));
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
