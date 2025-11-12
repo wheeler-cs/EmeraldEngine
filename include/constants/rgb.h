@@ -22,6 +22,8 @@
 #define RGB_CYAN       RGB(0, 31, 31)
 #define RGB_WHITEALPHA (RGB_WHITE | RGB_ALPHA)
 
+// Macro that allows for the use of 3-byte HTML color. Narrows the bit depth to
+// the format used by the GBA.
 #define RGB_HEX(r, g, b) RGB(r >> 3, g >> 3, b >> 3)
 
 #endif // GUARD_RGB_H

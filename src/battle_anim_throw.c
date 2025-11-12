@@ -597,8 +597,6 @@ const u16 gBallOpenFadeColors[] =
     [BALL_TIMER]   = RGB(29, 30, 30),
     [BALL_LUXURY]  = RGB(31, 17, 10),
     [BALL_PREMIER] = RGB(31, 9, 10),
-
-      // TODO: Change these to be more fitting
     [BALL_FAST]    = RGB_HEX(0xCC, 0x66, 0x00),
     [BALL_LEVEL]   = RGB_HEX(0xB3, 0xB3, 0x00),
     [BALL_LURE]    = RGB_HEX(0x00, 0x66, 0xCC),
