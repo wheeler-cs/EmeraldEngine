@@ -126,12 +126,16 @@ LittlerootTown_BrendansHouse_2F_EventScript_MeetBrendanEast::
 	return
 
 LittlerootTown_BrendansHouse_2F_EventScript_WarpToDebug::
+	lockall
+#ifdef ANNA_DEBUG
 	checkitem ITEM_DEBUGGER
-	call_if_set VAR_RESULT, LittlerootTown_BrendansHouse_2F_EventScript_WarpDebug
+	goto_if_eq VAR_RESULT, TRUE, LittlerootTown_BrendansHouse_2F_EventScript_WarpDebug
+#endif
+	releaseall
 	end
 
 LittlerootTown_BrendansHouse_2F_EventScript_WarpDebug::
-	warp MAP_DEBUG_MAP_MAIN, 1, 6
+	warp MAP_DEBUG_MAP_MAIN, 1, 3
 	end
 
 LittlerootTown_BrendansHouse_2F_Movement_BrendanEnters:

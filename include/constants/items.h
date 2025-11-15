@@ -286,7 +286,8 @@
 #define ITEM_ROOT_FOSSIL    (FIRST_KEY_ID + 26)
 #define ITEM_CLAW_FOSSIL    (FIRST_KEY_ID + 27)
 #define ITEM_DEVON_SCOPE    (FIRST_KEY_ID + 28)
-#define ITEM_DEBUGGER       (FIRST_KEY_ID + 29)
+#define ITEM_OVAL_CHARM     (FIRST_KEY_ID + 29)
+#define ITEM_DEBUGGER       (FIRST_KEY_ID + 30)
 #define LAST_KEY_ID         (ITEM_DEBUGGER)
 
 // TMs/HMs

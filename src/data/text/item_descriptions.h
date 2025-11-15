@@ -1188,6 +1188,11 @@ static const u8 sDevonScopeDesc[] = _(
     "that signals any\n"
     "unseeable POKéMON.");
 
+static const u8 sOvalCharmDesc[] = _(
+    "A charm said to\n"
+    "increase luck\n"
+    "with EGGS.");
+
 // TMs/HMs
 static const u8 sTM01Desc[] = _(
     "Powerful, but makes\n"

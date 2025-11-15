@@ -67,7 +67,7 @@ PetalburgMansionB1_DoHauntedBoss::
 	setwildmonmove MOVE_SHADOW_BALL, 0
 	setwildmonmove MOVE_THUNDERBOLT, 1
 	setwildmonmove MOVE_SHADOW_PUNCH, 2
-	setwildmonmove MOVE_MEAN_LOOK, 3
+	setwildmonmove MOVE_CHARGE, 3
 	@ Perform pre-fight cinematic
 	playmoncry SPECIES_HAUNTER, CRY_MODE_ENCOUNTER
 	delay 40

@@ -628,6 +628,9 @@
     "Route124_DivingTreasureHuntersHouse"
   ],
   "gMapGroup_Debug": [
-    "DebugMapMain"
+    "DebugMapMain",
+    "DebugMapTownWarps",
+    "DebugMapBattleArea",
+    "DebugMapScripts"
   ]
 }

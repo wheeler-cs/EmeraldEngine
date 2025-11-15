@@ -23,6 +23,8 @@
 #include "constants/moves.h"
 #include "constants/region_map_sections.h"
 
+#include "item.h"
+
 extern const struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 static void ClearDaycareMonMail(struct DaycareMail *mail);
@@ -890,6 +892,22 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
     if (daycare->offspringPersonality == 0 && validEggs == DAYCARE_MON_COUNT && (daycare->mons[1].steps & 0xFF) == 0xFF)
     {
         u8 compatibility = GetDaycareCompatibilityScore(daycare);
+        // Oval charm increases likelihood of egg appearing
+        if(CheckBagHasItem(ITEM_OVAL_CHARM, 1))
+        {
+            switch(compatibility)
+            {
+                case PARENTS_LOW_COMPATIBILITY:
+                    compatibility += 20;
+                    break;
+                case PARENTS_MED_COMPATIBILITY:
+                    compatibility += 30;
+                    break;
+                case PARENTS_MAX_COMPATIBILITY:
+                    compatibility += 18;
+                    break;
+            }
+        }
         if (compatibility > (Random() * 100u) / USHRT_MAX)
             TriggerPendingDaycareEgg();
     }

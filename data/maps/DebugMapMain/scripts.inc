@@ -1,14 +1,30 @@
 DebugMapMain_MapScripts::
 	.byte 0
 
+DebugMapMain_Sign_Littleroot::
+	msgbox DebugMapMain_Text_Littleroot, MSGBOX_SIGN
+	end
+
+DebugMapMain_Text_Littleroot:
+	.string "LITTLEROOT TOWN$"
+
+DebugMapMain_Sign_RegionMap::
+	msgbox DebugMapMain_Text_RegionMap, MSGBOX_SIGN
+	end
+
+DebugMapMain_Text_RegionMap:
+	.string "REGION MAP$"
+
+DebugMapMain_Sign_BattleArea::
+	msgbox DebugMapMain_Text_BattleArea, MSGBOX_SIGN
+	end
+
+DebugMapMain_Text_BattleArea:
+	.string "BATTLE AREA$"
+
 
 DebugMapMain_SetMaxPlayTime::
 	special PlayTimeCounter_SetToMax
-	end
-
-DebugMain_TestLinkStone::
-	giveitem ITEM_GREAT_BALL, 99
-	closemessage
 	end
 
 DebugMapMain_GiveRockSmash::

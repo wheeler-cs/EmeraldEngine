@@ -4415,7 +4415,7 @@
       "id": "LAYOUT_DEBUG_MAP_MAIN",
       "name": "DebugMapMain_Layout",
       "width": 20,
-      "height": 20,
+      "height": 7,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/DebugMapMain/border.bin",
@@ -4470,6 +4470,36 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/PetalburgMansion_B2/border.bin",
       "blockdata_filepath": "data/layouts/PetalburgMansion_B2/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEBUG_MAP_TOWN_WARPS",
+      "name": "DebugMapTownWarps_Layout",
+      "width": 34,
+      "height": 25,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/DebugMapTownWarps/border.bin",
+      "blockdata_filepath": "data/layouts/DebugMapTownWarps/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEBUG_MAP_BATTLE_AREA",
+      "name": "DebugMapBattleArea_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/DebugMapBattleArea/border.bin",
+      "blockdata_filepath": "data/layouts/DebugMapBattleArea/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEBUG_MAP_SCRIPTS",
+      "name": "DebugMapScripts_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/DebugMapScripts/border.bin",
+      "blockdata_filepath": "data/layouts/DebugMapScripts/map.bin"
     }
   ]
 }
