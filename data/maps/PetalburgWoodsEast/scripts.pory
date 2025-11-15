@@ -1,0 +1,166 @@
+raw `
+PetalburgWoodsEast_MapScripts::
+	.byte 0
+
+// ==== Lost Boy Mansion Quest =====================================================================
+PetalburgWoodsEast_EventScript_LostBoy::
+	lockall
+	faceplayer
+	goto_if_set FLAG_BADGE04_GET, PetalburgWoodsEast_EventScript_BeginMansionQuest
+	msgbox PetalburgWoodsEast_Text_NobodyIsAllowed, MSGBOX_NPC
+	releaseall
+	end
+
+PetalburgWoodsEast_EventScript_BeginMansionQuest::
+	applymovement LOCALID_LOST_BOY, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 48
+	msgbox PetalburgWoodsEast_Text_OhIsThat, MSGBOX_DEFAULT
+	waitmessage
+	applymovement LOCALID_LOST_BOY, PetalburgWoodsEast_Movement_LostBoyLookBack
+	waitmovement 0
+	delay 48
+	msgbox PetalburgWoodsEast_Text_MaybeYouCanHelp, MSGBOX_DEFAULT
+	waitmessage
+	msgbox PetalburgWoodsEast_Text_IfITryToGo, MSGBOX_DEFAULT
+	waitmessage
+	goto PetalburgWoodsEast_EventScript_AcceptMansionQuest
+
+PetalburgWoodsEast_EventScript_AcceptMansionQuest::
+	msgbox PetalburgWoodsEast_Text_WouldYouGoLook, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, PetalburgWoodsEast_EventScript_RespondedNo
+	msgbox PetalburgWoodsEast_Text_OhThankYou, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	goto PetalburgWoodsEast_EventScript_LostBoyReturnHome
+
+PetalburgWoodsEast_EventScript_RespondedNo::
+	msgbox PetalburgWoodsEast_Text_PleaseWillYou, MSGBOX_DEFAULT
+	waitmessage
+	goto PetalburgWoodsEast_EventScript_AcceptMansionQuest
+
+PetalburgWoodsEast_EventScript_LostBoyReturnHome::
+	getplayerxy VAR_0x8004, VAR_0x8005
+	goto_if_eq VAR_0x8004, 13, PetalburgWoodsEast_EventScript_WalkAroundPlayer
+	applymovement LOCALID_LOST_BOY, PetalburgWoodsEast_Movement_LostBoyWalkAway
+	waitmovement
+	setflag FLAG_HIDE_PETALBURG_WOODS_EAST_LOST_BOY
+	releaseall
+	end
+
+PetalburgWoodsEast_EventScript_WalkAroundPlayer::
+	applymovement LOCALID_LOST_BOY, PetalburgWoodsEast_Movement_LostBoyWalkAround
+	waitmovement
+	setflag FLAG_HIDE_PETALBURG_WOODS_EAST_LOST_BOY
+	releaseall
+	end
+
+PetalburgWoodsEast_Movement_LostBoyLookBack:
+	face_up
+	delay_16
+	delay_16
+	delay_16
+	face_player
+	step_end
+
+PetalburgWoodsEast_Movement_LostBoyWalkAway:
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+PetalburgWoodsEast_Movement_LostBoyWalkAround:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+PetalburgWoodsEast_Text_NobodyIsAllowed:
+	.string "Nobody is allowed inside the manor!\n"
+	.string "Somebody could easily get hurt if they\l"
+	.string "aren't careful!$"
+
+PetalburgWoodsEast_Text_OhIsThat:
+	.string "Oh! Is that the BADGE from LAVARIDGE\n"
+	.string "GYM? You must be pretty strong!$"
+
+PetalburgWoodsEast_Text_MaybeYouCanHelp:
+	.string "… … … … … …\p"
+	.string "Maybe you can help me out.\p"
+	.string "You see… I dared my friend to go inside\n"
+	.string "the manor.\p"
+	.string "Rumors say it's supposed to be haunted,\n"
+	.string "but he didn't believe a word of it.\p"
+	.string "Well, that was some time ago, and now I'm\n"
+	.string "starting to get worried.$"
+
+PetalburgWoodsEast_Text_IfITryToGo:
+	.string "If I try to go get help myself, I'll get\n"
+	.string "in trouble for playing around here.$"
+
+PetalburgWoodsEast_Text_WouldYouGoLook:
+	.string "Could you go in and look for him?$"
+
+PetalburgWoodsEast_Text_PleaseWillYou:
+	.string "Please will you go look for him? I don't\n"
+	.string "know what else to do!$"
+
+PetalburgWoodsEast_Text_OhThankYou:
+	.string "Oh, thank you! Please be careful inside.\n"
+	.string "The manor is home to all kinds of wild\l"
+	.string "POKéMON.$"
+
+// ==== Hex Maniac Lily ============================================================================
+PetalburgWoodsEast_EventScript_Lily::
+	trainerbattle_single TRAINER_HEX_MANIAC_LILY, PetalburgWoodsEast_Text_ISenseSomethingOminous, PetalburgWoodsEast_Text_NoItCouldntBe
+	msgbox PetalburgWoodsEast_Text_BeCarefulMyChild, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoodsEast_Text_ISenseSomethingOminous:
+	.string "I sense something ominous in these\n"
+	.string "woods. Is it you?$"
+
+PetalburgWoodsEast_Text_NoItCouldntBe:
+	.string "No… It couldn't be…$"
+
+PetalburgWoodsEast_Text_BeCarefulMyChild:
+	.string "Be careful, my child. Strange things\n"
+	.string "lurk in the shadows of these trees.$"
+
+// ==== Youngster Michael ==========================================================================
+PetalburgWoodsEast_EventScript_Michael::
+	trainerbattle_single TRAINER_YOUNGSTER_MICHAEL, PetalburgWoodsEast_Text_WatchOut, PetalburgWoodsEast_Text_Drat
+	msgbox PetalburgWoodsEast_Text_NotAllTallGrass, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoodsEast_Text_WatchOut:
+	.string "Watch out! I just caught some really\n"
+	.string "strong POKéMON!$"
+
+PetalburgWoodsEast_Text_Drat:
+	.string "Drat! That could've gone better.$"
+
+PetalburgWoodsEast_Text_NotAllTallGrass:
+	.string "Not all tall grass is the same.\p"
+	.string "Some POKéMON like to hide in different\n"
+	.string "spots, so be sure to check around\l"
+	.string "everywhere.$"
+`

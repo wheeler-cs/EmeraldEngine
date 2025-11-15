@@ -1,0 +1,10 @@
+raw `
+DebugMapScripts_MapScripts::
+	.byte 0
+
+DebugMapScripts_Event_TestScript1::
+	lockall
+	giveitem ITEM_OVAL_CHARM
+	releaseall
+	end
+`

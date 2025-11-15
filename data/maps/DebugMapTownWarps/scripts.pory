@@ -1,0 +1,5 @@
+raw `
+DebugMapTownWarps_MapScripts::
+	.byte 0
+
+`
