@@ -4495,7 +4495,7 @@
       "id": "LAYOUT_DEBUG_MAP_SCRIPTS",
       "name": "DebugMapScripts_Layout",
       "width": 20,
-      "height": 20,
+      "height": 8,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/DebugMapScripts/border.bin",

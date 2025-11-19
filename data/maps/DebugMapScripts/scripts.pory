@@ -1,10 +1,11 @@
-raw `
-DebugMapScripts_MapScripts::
-	.byte 0
+mapscripts DebugMapScripts_MapScripts {
+	
+}
 
-DebugMapScripts_Event_TestScript1::
+script DebugMapScripts_Event_TestScript1
+{
 	lockall
-	giveitem ITEM_OVAL_CHARM
+	giveitem(ITEM_OVAL_CHARM, 1)
 	releaseall
 	end
-`
+}

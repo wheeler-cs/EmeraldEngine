@@ -1,34 +1,28 @@
-raw `
-DebugMapMain_MapScripts::
-	.byte 0
+mapscripts DebugMapMain_MapScripts
+{
 
-DebugMapMain_Sign_Littleroot::
-	msgbox DebugMapMain_Text_Littleroot, MSGBOX_SIGN
+}
+
+script DebugMapMain_Sign_Littleroot
+{
+	msgbox("LITTLEROOT TOWN", MSGBOX_SIGN)
 	end
+}
 
-DebugMapMain_Text_Littleroot:
-	.string "LITTLEROOT TOWN$"
-
-DebugMapMain_Sign_RegionMap::
-	msgbox DebugMapMain_Text_RegionMap, MSGBOX_SIGN
+script DebugMapMain_Sign_RegionMap
+{
+	msgbox("REGION MAP", MSGBOX_SIGN)
 	end
+}
 
-DebugMapMain_Text_RegionMap:
-	.string "REGION MAP$"
-
-DebugMapMain_Sign_BattleArea::
-	msgbox DebugMapMain_Text_BattleArea, MSGBOX_SIGN
+script DebugMapMain_Sign_BattleArea
+{
+	msgbox("BATTLE AREA", MSGBOX_SIGN)
 	end
+}
 
-DebugMapMain_Text_BattleArea:
-	.string "BATTLE AREA$"
-
-
-DebugMapMain_SetMaxPlayTime::
-	special PlayTimeCounter_SetToMax
+script DebugMapMain_Sign_Scripts
+{
+	msgbox("SCRIPTS", MSGBOX_SIGN)
 	end
-
-DebugMapMain_GiveRockSmash::
-	setflag FLAG_BADGE04_GET
-	end
-`
+}
