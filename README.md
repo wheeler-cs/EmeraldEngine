@@ -5,6 +5,7 @@ accomplish this, a number of changes to the base game and the toolchain itself h
 
 | *Table of Contents* |
 |---------------------|
+| [Poryscript](#poryscript) |
 | [Non-Docker Build](#non-docker-build) |
 | [Docker Build](#docker-build) |
 | [SSH Keys](#ssh-keys) |
@@ -16,6 +17,21 @@ accomplish this, a number of changes to the base game and the toolchain itself h
 This repo can be built either on bare metal or in a Docker container. Opting to not build in a container does require a
 bit more work, but it is not too terribly involved. For Windows systems, it is recommended to install WSL. Other methods
 of installation exist, and a more detailed summary can be found in [INSTALL.md](INSTALL.md).
+
+## <a id=poryscript>Poryscript</a>
+Poryscript is a high-level scripting language that makes working with map scripts a bit easier. By default, Beryl uses
+Poryscript during compilation, meaning if you want to make modifications to the game, you'll have to install it. You
+can find direction for how to install it [here](https://github.com/huderlem/poryscript).
+
+If you are just interested in compiling the game without using Porscript, there's a
+[modified Makefile](Makefile_Vanilla) that can be used in place of the default. This can be done by issuing the command
+
+```
+make --makefile=Makefile_Vanilla
+```
+
+which will compile the game without requiring Poryscript.
+
 
 ## <a id=nondocker-install>Non-Docker Build</a>
 The first step is to ensure all the needed packages for building are installed on your machine. These are:
@@ -58,6 +74,12 @@ of threads your CPU has.
 
 ```
 make -j4
+```
+
+If you do not wish to install Poryscript, and just want to compile the game as is, you can do
+
+```
+make -j4 --makefile=Makefile_Vanilla
 ```
 
 
