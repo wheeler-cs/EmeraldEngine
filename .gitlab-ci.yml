@@ -1,0 +1,7 @@
+stages:
+  - compile
+
+compile_ROM:
+  stage: compile
+  script:
+    - make -j2
