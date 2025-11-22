@@ -3,5 +3,7 @@ stages:
 
 compile_ROM:
   stage: compile
+  tags:
+    - compile
   script:
     - make -j2
