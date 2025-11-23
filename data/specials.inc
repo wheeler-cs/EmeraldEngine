@@ -538,3 +538,5 @@ gSpecials::
 	def_special TrySetBattleTowerLinkType
 	def_special PlayTimeCounter_SetToMax
 	def_special UpdateNightFlag
+	def_special HasAllMons
+	def_special FillPokedex

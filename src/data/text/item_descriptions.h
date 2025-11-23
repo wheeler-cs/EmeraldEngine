@@ -1193,6 +1193,11 @@ static const u8 sOvalCharmDesc[] = _(
     "increase luck\n"
     "with EGGS.");
 
+static const u8 sShinyCharmDesc[] = _(
+    "A charm said to\n"
+    "lure shiny\n"
+    "POKéMON.");
+
 // TMs/HMs
 static const u8 sTM01Desc[] = _(
     "Powerful, but makes\n"

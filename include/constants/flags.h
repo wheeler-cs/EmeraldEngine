@@ -322,9 +322,10 @@
 #define FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR   (SCRIPT_FLAGS_START_GROUP_5 + 57)
 #define GROUP_5_LAST_FLAG                      (FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR)
 
-#define FLAG_RECEIVED_OVAL_CHARM (GROUP_5_LAST_FLAG + 1)
+#define FLAG_RECEIVED_OVAL_CHARM  (GROUP_5_LAST_FLAG + 1)
+#define FLAG_RECEIVED_SHINY_CHARM (GROUP_5_LAST_FLAG + 2)
 
-#define LAST_SCRIPT_FLAG (FLAG_RECEIVED_OVAL_CHARM)
+#define LAST_SCRIPT_FLAG (FLAG_RECEIVED_SHINY_CHARM)
 
 // Flags for whether a rematchable trainer has been registered in the player's Match Call.
 // Most are used implicitly by adding their REMATCH_* id to TRAINER_REGISTERED_FLAGS_START.

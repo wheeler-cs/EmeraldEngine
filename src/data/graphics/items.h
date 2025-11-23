@@ -657,6 +657,9 @@ const u32 gItemIconPalette_DevonScope[] = INCBIN_U32("graphics/items/icon_palett
 const u32 gItemIcon_OvalCharm[] = INCBIN_U32("graphics/items/icons/oval_charm.4bpp.lz");
 const u32 gItemIconPalette_OvalCharm[] = INCBIN_U32("graphics/items/icon_palettes/oval_charm.gbapal.lz");
 
+const u32 gItemIcon_ShinyCharm[] = INCBIN_U32("graphics/items/icons/shiny_charm.4bpp.lz");
+const u32 gItemIconPalette_ShinyCharm[] = INCBIN_U32("graphics/items/icon_palettes/shiny_charm.gbapal.lz");
+
 // TMs/HMs
 
 const u32 gItemIcon_TM[] = INCBIN_U32("graphics/items/icons/tm.4bpp.lz");

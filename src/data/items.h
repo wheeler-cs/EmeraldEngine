@@ -829,7 +829,7 @@ const struct Item gItems[] =
         .itemId = ITEM_NONE,
         .price = 0,
         .description = sDummyDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
@@ -2972,6 +2972,18 @@ const struct Item gItems[] =
         .pocket       = POCKET_KEY_ITEMS,
         .type         = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_SHINY_CHARM] =
+    {
+        .name         = _("SHINY CHARM"),
+        .itemId       = ITEM_SHINY_CHARM,
+        .price        = 0,
+        .description  = sShinyCharmDesc,
+        .importance   = 1,
+        .pocket       = POCKET_KEY_ITEMS,
+        .type         = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,   
     },
 
 // TMs/HMs

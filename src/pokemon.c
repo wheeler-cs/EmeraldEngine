@@ -2245,6 +2245,13 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
               | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
               | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
 
+        // Shiny charm adds 3 rolls
+        if(CheckBagHasItem(ITEM_SHINY_CHARM, 1))
+        {
+            shinyRolls += 3;
+        }
+
+        // Chain fishing adds (2 * chain) + 1 rolls
         if(gIsFishingEncounter)
         {
             shinyRolls += 1 + 2 * gChainFishingStreak;

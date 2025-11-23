@@ -6,8 +6,8 @@ DebugMapScripts_Event_TestScript1::
 # 7 "data/maps/DebugMapScripts/scripts.pory"
 	lockall
 # 8 "data/maps/DebugMapScripts/scripts.pory"
-	giveitem ITEM_OVAL_CHARM, 1
+	giveitem ITEM_RARE_CANDY, 99
 # 9 "data/maps/DebugMapScripts/scripts.pory"
-	releaseall
+	special FillPokedex
 	end
 

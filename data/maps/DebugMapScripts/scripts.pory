@@ -5,7 +5,7 @@ mapscripts DebugMapScripts_MapScripts {
 script DebugMapScripts_Event_TestScript1
 {
 	lockall
-	giveitem(ITEM_OVAL_CHARM, 1)
-	releaseall
+	giveitem(ITEM_RARE_CANDY, 99)
+	special(FillPokedex)
 	end
 }
